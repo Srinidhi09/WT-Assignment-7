@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="http://www.jacklmoore.com/colorbox/example1/colorbox.css" />
+
+<script type="text/javascript"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://www.jacklmoore.com/colorbox/jquery.colorbox.js"></script>
+<script>
+
+function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie() {
+    var user=getCookie("username");
+    if (user != "") {
+        alert("Welcome again " + user);
+    } else {
+       user = prompt("Please enter your name:","");
+       if (user != "" && user != null) {
+           setCookie("username", user, 30);
+       }
+    }
+}
+
+
+  function openColorBox(){
+    $.colorbox({iframe:true, width:"80%", height:"80%", href: "http://jobs.marist.edu//"});
+  }
+  
+  setTimeout(openColorBox, 5000);
+</script>
+<style>
+a {font-size: 30px}
+</style>
+
+
+</head>
+<body  onLoad ="checkCookie()" style="background-color:#91b8f7">
+
+
+<div id="tab1" align = "center"><!-- page 1 --><br><br><br><br>
+<h3 style="font-family:Lucida Calligraphy; font-size:200%; text-align:center;">Hi, Welcome!</h3>
+	 <h3 style= "font-size:300%; color:#ea4a38;"><b>Looking for Jobs?</b></h3>
+	<p style = "font-family:Georgia; font-size:180%;"> One should have great passion to get placed...</p>
+	<p style = "font-family:Georgia; font-size:180%;">  Build your qualifications and make a unique resume to stand out from others</p>
+		<p style = "font-family:Georgia; font-size:180%;"> Check out the link below for more tips on how to get placed in your desired company!</p>
+	<br>
+	<a href ="https://www.thebalance.com/tips-to-help-you-get-hired-fast-2059661" target="_blank">Tips on how to get Hired fast!</a>
+  </div><!-- /tab1 -->
+
+</body>
+</body>
+</html>
+
